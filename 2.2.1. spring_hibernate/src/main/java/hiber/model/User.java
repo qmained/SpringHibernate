@@ -2,12 +2,10 @@ package hiber.model;
 
 import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 @Entity
-@Component
 @Table(name = "users")
 public class User {
 
@@ -75,6 +73,7 @@ public class User {
         return car;
     }
 
+    @Autowired
     public void setCar(Car car) {
         this.car = car;
     }

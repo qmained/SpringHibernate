@@ -2,12 +2,10 @@ package hiber.model;
 
 import jakarta.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 @Entity
-@Component
 @Table(name = "cars")
 public class Car {
 
@@ -22,9 +20,9 @@ public class Car {
     private Integer series;
 
     @OneToOne(mappedBy = "car")
-    @Autowired
     private User user;
 
+    @Autowired
     public Car() {
 
     }
@@ -62,6 +60,7 @@ public class Car {
         return user;
     }
 
+//    @Autowired
     public void setUser(User user) {
         this.user = user;
     }

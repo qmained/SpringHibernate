@@ -33,7 +33,7 @@ public class UserDaoImp implements UserDao {
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User as u inner join fetch u.car as c where c.series=:series and c.model=:model", User.class);
         query.setParameter("model", model);
         query.setParameter("series", series);
-        return query.getResultList().get(query.getFirstResult());
+        return query.setMaxResults(1).getSingleResult();
     }
 
 

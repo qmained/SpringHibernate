@@ -1,7 +1,6 @@
 package hiber.model;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Objects;
 
@@ -24,7 +23,6 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id", referencedColumnName = "id")
-    @Autowired
     private Car car;
 
     public User() {
@@ -73,7 +71,6 @@ public class User {
         return car;
     }
 
-    @Autowired
     public void setCar(Car car) {
         this.car = car;
     }

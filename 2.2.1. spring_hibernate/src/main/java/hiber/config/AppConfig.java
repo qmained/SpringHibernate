@@ -23,7 +23,6 @@ import java.util.Properties;
 @ComponentScan(value = "hiber")
 public class AppConfig {
 
-    @Autowired
     private Environment env;
 
     @Bean
@@ -57,6 +56,10 @@ public class AppConfig {
         return transactionManager;
     }
 
+    @Autowired
+    public void setEnv(Environment env) {
+        this.env = env;
+    }
 
     @Bean(name = "user")
     public User getUser() {

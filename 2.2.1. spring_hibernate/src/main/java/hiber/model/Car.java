@@ -1,7 +1,6 @@
 package hiber.model;
 
 import jakarta.persistence.*;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Objects;
 
@@ -22,7 +21,6 @@ public class Car {
     @OneToOne(mappedBy = "car")
     private User user;
 
-    @Autowired
     public Car() {
 
     }

@@ -25,6 +25,11 @@ public class AppConfig {
 
     private Environment env;
 
+    @Autowired
+    public void setEnv(Environment env) {
+        this.env = env;
+    }
+
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -54,21 +59,6 @@ public class AppConfig {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(getSessionFactory().getObject());
         return transactionManager;
-    }
-
-    @Autowired
-    public void setEnv(Environment env) {
-        this.env = env;
-    }
-
-    @Bean(name = "user")
-    public User getUser() {
-        return new User();
-    }
-
-    @Bean(name = "car")
-    public Car getCar() {
-        return new Car();
     }
 
 }
